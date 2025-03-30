@@ -1,0 +1,174 @@
+.nav-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 80px;
+  padding: 20px 0;
+  background: var(--color-card);
+  box-shadow: 0 2px 10px var(--color-gray-shadow);
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slide-right 0.6s ease forwards;
+  z-index: 100;
+}
+
+.nav-section nav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.nav-section nav img {
+  width: 40px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: scale(0);
+  animation: zoom-in 0.6s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.nav-section nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  padding: 0;
+}
+
+.nav-section nav ul li {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  transition: all 0.2s ease;
+  opacity: 0;
+  transform: translateX(-10px);
+  width: 100%;
+  padding: 10px 0;
+}
+
+.nav-section nav ul li i {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.nav-section nav ul li:hover {
+  color: var(--color-text-primary);
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.nav-section nav ul li.active {
+  color: var(--color-text-primary);
+  position: relative;
+}
+
+.nav-section nav ul li.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 60%;
+  width: 3px;
+  background-color: var(--color-accent-blue);
+  border-radius: 0 4px 4px 0;
+}
+
+.nav-section nav ul li.active i {
+  color: var(--color-text-primary);
+}
+
+.nav-section nav ul li:nth-child(1) {
+  animation: slide-right 0.6s ease forwards;
+  animation-delay: 0.5s;
+  color: var(--color-text-primary);
+}
+
+.nav-section nav ul li:nth-child(2) {
+  animation: slide-right 0.6s ease forwards;
+  animation-delay: 0.6s;
+}
+
+.nav-section nav ul li:nth-child(3) {
+  animation: slide-right 0.6s ease forwards;
+  animation-delay: 0.7s;
+}
+
+.nav-section nav ul li:nth-child(4) {
+  animation: slide-right 0.6s ease forwards;
+  animation-delay: 0.8s;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-section {
+    width: 100%;
+    height: 60px;
+    bottom: 0;
+    top: auto;
+    transform: translateY(20px);
+    animation: slide-up 0.5s ease forwards;
+  }
+  
+  .nav-section nav {
+    flex-direction: row;
+    padding: 0 10px;
+  }
+  
+  .nav-section nav img {
+    display: none;
+  }
+  
+  .nav-section nav ul {
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    gap: 0;
+  }
+  
+  .nav-section nav ul li {
+    font-size: 0.7rem;
+    width: 25%;
+    text-align: center;
+    padding: 8px 0;
+  }
+  
+  .nav-section nav ul li.active::before {
+    left: 50%;
+    top: auto;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+  }
+  
+  .nav-section nav ul li i {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .nav-section nav ul li span {
+    display: none;
+  }
+  
+  .nav-section nav ul li {
+    padding: 10px 0;
+  }
+  
+  .nav-section nav ul li i {
+    font-size: 1.5rem;
+  }
+  
+  .nav-section nav ul li.active::before {
+    width: 20px;
+  }
+}
